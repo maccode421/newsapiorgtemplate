@@ -1,9 +1,8 @@
 /*global $*/
-/*global $ajax*/
 
 $(() => {
     
-    $ajax({
+    $.ajax({
         url: "https://newsapi.org/v2/sources",
         method: "GET",
         data: {
