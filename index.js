@@ -32,5 +32,17 @@ $("#source").submit(function(event) {
             sources: (document.getElementById("selection").value),
             apiKey: APIKEY
         },
+        success: function(data) {
+            console.log(data);
+            for (var i = 0; i < data.articles.length; i++) {
+                var list = document.createElement("UL");
+                var headlines = document.createElement("li");
+                var linkHeadlines = document.createElement("a");
+                headlines.innerHTML = data.articles[i].title;
+                linkHeadlines.href = data.articles[i].url;
+                linkHeadlines.innerHTML = data.articles[i].description;
+                document.getElementById("headlines").appendChild(headlines).appendChild(linkHeadlines);
+            }
+        }
     });
 });
