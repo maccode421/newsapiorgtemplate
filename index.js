@@ -38,6 +38,7 @@ $("#source").submit(function(event) {
                 var list = document.createElement("UL");
                 var headlines = document.createElement("LI");
                 var linkHeadlines = document.createElement("a");
+                linkHeadlines.setAttribute("target", "_blank");
                 headlines.innerHTML = data.articles[i].title;
                 linkHeadlines.href = data.articles[i].url;
                 linkHeadlines.innerHTML = data.articles[i].description;
