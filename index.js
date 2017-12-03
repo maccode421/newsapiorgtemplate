@@ -6,12 +6,13 @@ $(() => {
         url: "https://newsapi.org/v2/sources",
         method: "GET",
         data: {
-            category: "business",
+            category: "technology",
             language: "en",
             country: "us",
-            apiKey: "APIKEY"
+            apiKey: APIKEY
         },
         success: function(data) {
+            console.log(data);
             for (var i = 0; i < data.sources.length; i++) {
                 var source = document.createElement("OPTION");
                 source.setAttribute("value", data.sources[i].id);
@@ -19,7 +20,6 @@ $(() => {
                 document.getElementById("selection").appendChild(source);
             }
         }
-        
     });
 });
 
@@ -36,7 +36,7 @@ $("#source").submit(function(event) {
             console.log(data);
             for (var i = 0; i < data.articles.length; i++) {
                 var list = document.createElement("UL");
-                var headlines = document.createElement("li");
+                var headlines = document.createElement("LI");
                 var linkHeadlines = document.createElement("a");
                 headlines.innerHTML = data.articles[i].title;
                 linkHeadlines.href = data.articles[i].url;
